@@ -1,0 +1,48 @@
+<!--<div>-->
+<!--  {{ state.login }}-->
+<!--  {{ state.pass }}-->
+<!--</div>-->
+
+<!--<input type="text" #input>-->
+
+<!--<button (click)="saveValue(input)">Save</button>-->
+
+<!--<input [(ngModel)]="state.login" type="text">-->
+<!--<input [(ngModel)]="state.pass" type="text">-->
+
+
+<!--<form>-->
+<!--  <div>-->
+<!--    <label>Login</label>-->
+<!--    <input-->
+<!--      type="text"-->
+<!--      [(ngModel)]="loginForm.login"-->
+<!--      name="login"-->
+<!--      required-->
+<!--      pattern="[a-zA-Z0-9]"-->
+<!--    >-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label>Password</label>-->
+<!--    <input-->
+<!--      type="password"-->
+<!--      [(ngModel)]="loginForm.password"-->
+<!--      name="password"-->
+<!--    >-->
+<!--  </div>-->
+<!--</form>-->
+
+
+<form [formGroup]="forma">
+  <div>
+    <div><input [formControl]="login"></div>
+    <div *ngIf="forma.controls.login.invalid">login is required</div>
+  </div>
+
+  <div>
+    <div><input [formControl]="password"></div>
+    <div *ngIf="forma.controls.password.invalid">Password is required</div>
+  </div>
+  <button (click)="checkState(forma)" [disabled]="forma.invalid">Send</button>
+</form>
